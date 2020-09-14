@@ -8,6 +8,7 @@
   - debug:
       var: item.name
     loop: "{{ result.openstack_servers }}"
+    when: item.name == frontend
 
 #  - name: Curl website
 #    uri:
