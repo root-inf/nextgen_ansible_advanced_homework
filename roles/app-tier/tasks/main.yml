@@ -1,2 +1,18 @@
 ---
 
+- name: Install app server packages
+  package:
+    name: "{{ payload }}"
+    state: present
+
+- name: Configure index.html
+  template:
+    src: index.html.j2
+    dest: "{{ tomcat_web_root }}"/index.html
+  notify: start_"{{ payload }}"
+
+- name: Enable tomcat
+  service:
+    name: "{{ payload }}"
+    state: started
+    enabled: true
