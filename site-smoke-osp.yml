@@ -5,6 +5,8 @@
     os_server_info:
       cloud: openstack
     register: result
+  - debug:
+      var: result
 #  - name: Curl website
 #    uri:
 #      url: "http://{{result.openstack_servers.public_v4}}/
