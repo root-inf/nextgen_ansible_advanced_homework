@@ -8,7 +8,7 @@
 - name: Configure index.html
   template:
     src: index.html.j2
-    dest: "{{ tomcat_web_root }}"/index.html
+    dest: {{ tomcat_web_root }}/index.html
   notify: start_"{{ payload }}"
 
 - name: Enable tomcat
