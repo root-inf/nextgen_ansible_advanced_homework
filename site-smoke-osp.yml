@@ -7,7 +7,8 @@
     register: result
   - debug:
       var: item.name
-    loop: "{{ result.openstack_servers }}'
+    loop: "{{ result.openstack_servers }}"
+
 #  - name: Curl website
 #    uri:
 #      url: "http://{{result.openstack_servers.public_v4}}/
