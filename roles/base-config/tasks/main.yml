@@ -9,7 +9,7 @@
     backup: yes
 
 - name: enable repos
-   template:
+   templates:
      src: repos_template.j2
      dest: /etc/yum.repos.d/three-tier-app.repo
  
