@@ -5,6 +5,14 @@
     name: "{{ payload }}"
     state: present
 
+- name: Create Document Root Directory
+  file:
+    path: "{{ tomcat_web_root }}"
+    state: directory
+    owner: root
+    group: tomcat
+    mode: 0755
+
 - name: Configure index.html
   template:
     src: index.html.j2
