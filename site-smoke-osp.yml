@@ -18,9 +18,9 @@
     loop: "{{ result.openstack_servers }}"
     when: item.name == 'frontend'
 
-- name: debug data
-  debug:
-    var: webpage
+  - name: debug data
+    debug:
+      var: webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
