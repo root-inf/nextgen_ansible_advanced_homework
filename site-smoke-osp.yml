@@ -4,6 +4,7 @@
   - name: OpenStack servers
     os_server_info:
       cloud: openstack
+      server: frontend
     register: result
 #  - debug:
 #      var: item.name
@@ -16,7 +17,6 @@
       return_content: yes
     register: webpage
     loop: "{{ result.openstack_servers }}"
-    when: item.name == 'frontend'
 
   - name: debug data
     debug:
@@ -24,7 +24,7 @@
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
-#    when: "'Ansible has done its job' not in webpage.results[0].content"
-    when: "'Ansible has done its job' not in webpage.content"
+    when: "'Ansible has done its job' not in webpage.results[0].content"
+#    when: "'Ansible has done its job' not in webpage.content"
     tags:
       - osp.smoke
