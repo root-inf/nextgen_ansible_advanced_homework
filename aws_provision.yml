@@ -26,8 +26,8 @@
     - name: replace python command
       replace: >-
         dest='/root/order_svc.sh'
-        regexp='python'
-        replace='python3'
+        regexp='python '
+        replace='python3 '
     - name: create credentials
       copy:
         content: |
@@ -52,4 +52,4 @@
         chdir: /root
     - name: Wait for mail
       pause:
-        minutes: 10 
+        minutes: 20 
