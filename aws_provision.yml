@@ -23,6 +23,11 @@
         url: "{{ param_repo_base }}/scripts/order_svc.sh"
         dest: /root/order_svc.sh
         mode: 0755
+    - name: replace python command
+      replace: >-
+        dest='/root/order_svc.sh'
+        regexp='python'
+        replace='python3'
     - name: create credentials
       copy:
         content: |
